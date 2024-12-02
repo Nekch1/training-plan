@@ -1,0 +1,1049 @@
+body{
+    margin: 0;
+    padding: 0;
+    overflow: scroll;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+body::-webkit-scrollbar{
+    width: 7px;
+    height: 0;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.5); 
+}
+
+img{
+    width:100%
+}
+
+a {
+    text-decoration: none;
+}
+
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(50px); 
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; 
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0); 
+}
+
+.hidden{
+    display: none;
+}
+
+header{
+    background-color: #333333;
+    padding:20px 0;
+}
+
+.header-container{
+    margin: 0 143px;
+    display: flex;
+}
+
+.logo img{
+    margin-right: 90px;
+    width: 220px;
+    height: 66px;
+}
+
+.holder{
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu{
+    font-family: "Roboto", serif;
+    font-weight: medium;
+    font-size: 23px;
+    width: 100%;
+    align-items: center;
+}
+
+.menu-item a{
+    color:#F8F8F8;
+    transition: all 0.1s ease;
+}
+
+.menu-item a:hover{
+    font-size: 24px;
+    color: #1E90FF;
+    transition: all 0.2s ease;
+}   
+
+.main-img img {
+    height: 500px;
+}
+
+.main-title {
+    position: absolute;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    color: #333333;
+    font-size: 25px;
+}
+
+.title-first{
+    right: 200px;
+    top: 300px;
+}
+
+.title-second{
+    top: 300px;
+    left: 110px;
+}
+
+.container{
+    margin: 0 104px
+}
+
+.create-block{
+    margin: 100px 0;
+}
+
+.create-plan-desc{
+    color:#000000;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    font-size: 26px;
+}
+
+.create-plan-button a{
+    border-radius: 50px;
+    background-color: #0056B3;
+    padding: 21px 75px;
+    color:#F8F8F8;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    transition: all 0.2s ease;
+    cursor:pointer;
+}
+
+.create-plan-button a:hover{
+    background-color: #024a97;
+    transition: all 0.2s ease;
+}
+
+.desc-block {
+    font-weight: bold;
+    background-color: #f0f0f0;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.desc-img {
+    width: 850px;
+    height: 550px;
+}
+
+.desc-text {
+    font-family: "Roboto", serif;
+    font-weight: medium;
+    font-size: 28px;
+    color: #000000;
+    text-align: center;
+    margin: auto 0;
+}
+
+.facts-block{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap:50px;
+    margin-top: 150px;
+}
+
+
+.fact {
+    position: relative;
+    width: 500px; 
+    height: 250px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.fact img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.fact-desc {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.5;
+    max-height: 90%;
+    transform: translateY(100%);
+    transition: transform 0.3s;
+    font-family: "Roboto", serif;
+    font-weight: medium;
+}
+
+.fact:hover .fact-desc {
+    transform: translateY(0); /* Показываем текст поверх изображения */
+}
+
+.fact-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    text-align: center;
+    transition: opacity 0.3s;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+}
+
+.fact:hover .fact-title {
+    opacity: 0;
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0; 
+    visibility: hidden; 
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+
+.scroll-to-top:hover {
+    background-color: #E6E6E6;
+    transform: scale(1.1);
+}
+
+.scroll-to-top.show {
+    opacity: 1; 
+    visibility: visible;
+}
+
+footer{
+    background-color: #333333;
+    font-family: "Roboto", serif;
+    font-weight: medium;
+    margin-top: 200px;
+}
+
+.footer-container{
+    margin:0 179px;
+    padding: 47px 0 85px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-desc{
+    color:#F8F8F8;
+    width: 346px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-desc-text{
+    line-height: 20px;
+}
+
+.footer-logo{
+    width: 250px;
+    height: 77px;
+}
+
+.footer-menu{
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.footer-menu-item a{
+    font-size: 18px;
+    color: #F8F8F8;
+}
+
+.footer-menu-item a:hover{
+    color: #1E90FF;
+    transition: all 0.2s ease;
+}
+
+.trainer-section{
+    background: linear-gradient(#333333, #ffffff);
+    margin-top: 1px;
+}
+
+.title{
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    font-size: 32px;
+}
+
+.trainer-section .title{
+    color: #F8F8F8;
+    text-align: center;
+    padding: 100px 0 50px 0;
+}
+
+.about-trainers{
+    display: flex;
+    justify-content: space-between;
+    gap: 100px;
+}
+
+.about-trainers img{
+    width:626px;
+    height: 417px;
+    border-radius: 10px;
+}
+
+.about-trainers-text{
+    font-family: "Roboto", serif;
+    font-weight: medium;
+    color:#F8F8F8;
+    margin: auto 0;
+    font-size: 20px;
+}
+
+.trainers-list{
+    margin-top: 250px;
+    font-family: "Roboto", serif;
+    display: flex;
+    flex-direction: column;
+    gap:100px
+}
+
+.trainer-card{
+    display: flex;
+    justify-content: space-between;
+    gap: 250px;
+    background-color: #F8F8F8;
+    padding: 30px 50px 30px 50px;
+}
+
+.trainer-card-left{
+    display: flex;
+    flex-direction: column;
+    gap:15px;
+    font-weight: medium;
+}
+
+.trainer-photo{
+    width: 200px;
+    height: 285px;
+}
+
+.trainer-card-right{
+    display: flex;
+    flex-direction: column;
+    gap:100px;
+}
+
+
+.trainer-details{
+    display: flex;
+    flex-direction: column;
+    gap:8px;
+}
+
+.trainer-detail{
+    font-weight: bold;
+    font-size: 26px;
+}
+
+.trainer-message{
+    font-style: italic;
+    font-size: 19px;
+}
+
+.exercises-section .title, .complete-plan-section .title{
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.complete-plan-section .plans{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 66px; 
+    justify-content: space-evenly;
+}
+
+.plans{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 66px; 
+    justify-content: flex-start;
+}
+
+.complete-plan-section .card{
+    width: 36%;
+}
+    
+.exercises {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 66px; 
+    justify-content: flex-start;
+}
+
+.card {
+    background-color: #E6E6E6;
+    border-radius: 50px;
+    position: relative;
+    width: 30%;
+    padding: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.add-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.add-button svg path {
+    fill: #333;
+    transition: fill 0.2s ease;
+}
+
+.add-button:hover svg path {
+    fill: #0056B3;
+}
+
+.card img {
+    width: 100%; 
+    height: auto; 
+}
+
+.card-title {
+    margin-top: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #000000;
+    transition: transform 0.3s ease, color 0.3s ease;
+    font-family: "Roboto", serif;
+    text-align: center;
+}
+
+.card-desc {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #000000;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    font-family: "Roboto", serif;
+    margin-left: 15px;
+}
+
+.card:hover .card-title {
+    transform: translateY(-20px);
+    color: #0056B3;
+}
+
+.card:hover .card-desc {
+    opacity: 1;
+    transform: translateY(-10px);
+}
+
+.card-content {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    cursor: pointer;
+}
+
+.add-plan{
+    text-align: end;
+    margin-top: 10px;
+}
+
+.add-plan svg:hover{
+    fill:#0056B3;
+    transition: all 0.2s ease;
+    cursor: pointer;
+
+}
+
+.empty-page{
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    color:#A19E9E;
+    font-size: 34px;
+    width: 1100px;
+    margin:300px auto;
+}
+
+.back {
+    display: inline-flex;
+    align-items: center; 
+    margin: 20px; 
+}
+
+.back a {
+    display: inline-flex; 
+    align-items: center; 
+    gap: 8px;
+}
+
+.back span {
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    color: black; 
+    transition: all 0.2s ease;
+    font-size: 18px;
+}
+
+.back svg {
+    width: 22px;
+    height: 22px;
+}
+
+.back svg path {
+    transition: all 0.2s ease;
+}
+
+.back a:hover svg path, .back a:hover span {
+    fill: #0056B3;
+    color: #0056B3;
+}
+
+
+.exercise-detail{
+    font-family: "Roboto", serif;
+    font-weight: medium;
+    margin-top: 20px;
+}
+
+.exercise-title{
+    font-size:30px; 
+    margin: auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.exercise-title .title{
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    color: #000000;
+}
+
+.exercise-title .desc{
+    font-size:20px;
+    font-weight: medium;
+    color: #333333;
+    width: 600px;
+}
+
+.exercise-bottom{
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 1px 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.exercise-bottom h2{
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.exercise-instructions{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.instruction h3{
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.instruction div{
+    font-size: 18px;
+    width: 1100px;
+}
+
+
+/* Стиль для модального окна */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+    font-family: "Roboto", serif;
+    font-weight: medium;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 20px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    gap: 20px;
+    height: 5   00px;
+}
+
+.modal-content div{
+    display: flex;
+    flex-direction: column;
+    gap:7px
+}
+
+.modal-content select{
+    list-style: none;
+	border: 3px solid #e8e8e8;
+    border-radius: 5px;
+    font-size: 18px;
+	cursor: pointer;
+    display: block;
+    padding: 2px 18px;
+}
+
+.modal-content input{
+    list-style: none;
+	border: 3px solid #e8e8e8;
+    border-radius: 5px;
+    font-size: 18px;
+	cursor: pointer;
+	display: block;
+	padding: 2px 18px;  
+}
+
+
+.modal-content button{
+    padding: 10px;
+    background-color: #0056B3;
+    color:#F8F8F8;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 300px;
+    margin: 30px auto;
+    font-size: 18px;
+}
+
+.modal-content button:hover{
+    background-color: #024a97;
+    transition: all 0.2s ease;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.modal-content label{
+    font-size: 20px;
+}
+
+.modal-content h2{
+    text-align: center;
+}
+
+.close{
+    text-align: right;
+}
+
+.close svg{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+.close svg:hover path{
+    fill:red;
+    transition: all 0.3s ease;
+}
+
+.modal input, .modal select{
+    height: 30px;
+}
+
+.myplans{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.plan {
+    position: relative;
+    margin-top: 20px;
+    border: 2px solid #E6E6E6;
+    border-radius: 5px;
+}
+
+.plan.fade-out{
+    animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.plan h3 {
+    display: inline-block;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    margin-right: 10px;
+    width: 100%;
+
+}
+.plan .plan-actions {
+    display: flex;
+    justify-content: space-between;
+    padding:20px;
+    cursor: pointer;
+
+}
+
+.plan .plan-actions div{
+    margin: auto 0;
+    margin-right: 7px;
+}
+
+.plan .plan-actions div:nth-child(1){
+    display: flex;
+}
+
+.drop-plan{
+    margin: auto 0;
+    width: 50px;
+    height:50px;
+    transition: transform 0.3s ease;
+}   
+
+.drop-plan .rotated {
+    transform: rotate(-180deg);
+    transition: transform 0.3s ease; /* Плавный переход для вращения */
+}
+
+.drop-plan svg{
+    width: 50px;
+    height:50px;
+    transition: all 0.3s ease;
+}
+
+.plan .plan-actions:hover .drop-plan svg path{
+    fill: #0056B3;
+    transition: all 0.3s ease;
+} 
+
+.delete-plan-btn {
+    width: 30px;
+    height: 30px;
+    cursor: default;
+}
+
+.delete-plan-btn svg path{
+    transition: all 0.2s ease;
+    cursor: pointer;
+
+}
+
+.delete-plan-btn svg:hover path{
+    fill:red;
+    transition: all 0.2s ease;
+}
+
+.plan-details {
+    overflow: hidden;
+    height: 0;
+    transition: height 0.3s ease-in-out;
+}
+
+.plan-details.open {
+    height: auto;
+}
+
+.plan-details ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+.plan-details li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+
+}
+
+.plan-details li:nth-child(even) .appr-and-reps input{
+    background-color: #F0F0F0;
+}
+
+.plan-details li:nth-child(even) {
+    background-color: #F0F0F0;
+}
+
+.plan-details li button {
+    margin-left: 10px;
+}
+ 
+.exercise-details{
+    gap: 20px;
+    font-family: "Roboto", serif;
+    font-weight: medium;
+}
+
+.exercise-name{
+    font-size: 25px;
+}
+
+.appr-and-reps{
+    display: flex;
+    gap:10px;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+
+.appr-and-reps input{
+    padding: 5px;
+    width: 50px;
+    outline: none;
+    text-align: center;
+    border: none;
+}
+
+.appr-and-reps input:focus{
+    outline: 1px solid #F0F0F0;
+}
+
+.edit-exercise{
+    display: flex;
+    gap: 10px;
+}
+
+.delete-exercise{
+    width: 40px;
+    height: 40px;
+}
+
+.delete-exercise svg{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;   
+    transition: all 0.2 ease;
+
+}
+
+.delete-exercise svg:hover path{
+    fill: red;
+    transition: all 0.2s ease;
+}
+
+.edit-exercise input {
+    appearance: none; 
+    width: 40px;
+    height: 40px;
+    margin: auto;
+    outline: none;
+    border: 5px solid #333333; 
+    border-radius: 8px; 
+    background-color: white; 
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+
+}
+
+.edit-exercise input:hover{
+    border-color: #0056B3; 
+    transition: all 0.3s ease;
+
+}
+
+.edit-exercise input:checked {
+    border-color: #0056B3; 
+    background-color: white; 
+    transition: all 0.3s ease;
+}
+
+.edit-exercise input:checked::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 6px;
+    width: 14px;
+    height: 20px;
+    border: solid #0056B3;
+    border-width: 0 4px 4px 0;
+    transform: rotate(45deg);
+}
+
+
+
+/* прогресс бар */
+.progress-block{
+    padding: 10px;
+    
+}
+
+.progress-bar-container {
+    width: 100%; 
+    height: 20px;
+    border: 4px solid #0056B3; 
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 10px 0; 
+    position: relative; 
+}
+
+.progress-bar {
+    height: 100%; 
+    background-color: #0056B3;
+    transition: width 0.4s ease; 
+}
+
+.progress-percentage {
+    width: 40px;
+    text-align: center; 
+    color: #0056B3;
+    font-weight: bold; 
+    font-size: 14px; 
+    font-family: "Roboto", serif;
+    font-weight: medium;
+}
+
+.no-exercises{
+    font-family: "Roboto", serif;
+    font-weight: medium;
+    color:#A19E9E;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+
+/* планы */
+.plan-page{
+    font-family: "Roboto", serif;
+    font-weight: medium;
+}
+
+.plan-page h2{
+    margin-bottom: 5px;
+}
+
+.plan-goal-desc{
+    margin: 40px 0;
+}
+
+.plan-goal-desc p, .exercise-list div, .tips-text, .muscle-text{
+    font-size: 20px;
+
+}
+
+.plan-page .title{
+    text-align: center;
+    font-style: italic;
+}
+
+.plan-subtitle{
+    font-family: "Roboto", serif;
+    font-weight: medium;
+}
+
+.plan-second-block{
+    box-shadow: 1px 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 50px;
+    border-radius:10px;
+}
+
+.plan-second-block{
+    display: flex;
+    gap: 50px;
+}
+
+.exercise-list{
+    margin-left: 25px;
+    display: flex;
+    flex-direction: column;
+    gap:7px
+}
+
+.right-side img{
+    width: 300px;
+    height: 400px;
+}
+
+.add{
+    padding: 10px;
+    background-color:#0056B3;
+    width: 300px;
+    font-size: 20px;
+    color:#F8F8F8;
+    text-align: center;
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-top: 50px;
+    cursor: pointer;
+}
+
+.add:hover{
+    background-color:#024a97;
+}

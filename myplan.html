@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Мой план</title>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/logo.svg" alt="">   
+                </a>
+            </div>
+            <div class="menu holder">
+                <div class="menu-item"><a href="completeplan.html">Готовые планы</a></div>
+                <div class="menu-item"><a href="exercises.html">Упражнения</a></div>
+                <div class="menu-item"><a href="trainers.html">Контакты тренеров</a></div>
+                <div class="menu-item"><a href="myplan.html">Мой план</a></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="plan-section">
+        <div class="container">
+            <div class="add-plan" id="createPlanBtn">
+                <svg onclick="openCreatePlanModal()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" height="32px" width="32px">
+                    <path d="M28,14H18V4c0-1.104-0.896-2-2-2s-2,0.896-2,2v10H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h10v10c0,1.104,0.896,2,2,2s2-0.896,2-2V18h10c1.104,0,2-0.896,2-2S29.104,14,28,14z" />
+                </svg>
+            </div>
+            <div class="myplans" id="plansContainer">
+            </div>
+        </div>
+    </main>
+    <div id="createPlanModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCreatePlanModal()"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></span>
+            <h2>Создать новый план</h2>
+            <label for="planName">Введите название плана:</label>
+            <input type="text" id="planName" placeholder="Название плана">
+            <button onclick="createPlan()">Создать план</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-desc">
+                <a href="#" class="footer-logo"><img src="img/logo.svg" alt="" ></a>
+                <div class="footer-desc-text">Каждый новый день приносит шанс стать лучше и добиться желаемого. Используйте его с умом и двигайтесь в своим целям! </div>
+            </div>
+            <div class="footer-menu">
+                <div class="footer-menu-item"><a href="completeplan.html">Готовые планы</a></div>
+                <div class="footer-menu-item"><a href="exercises.html">Упражнения</a></div>
+                <div class="footer-menu-item"><a href="trainers.html">Контакты тренеров</a></div>
+                <div class="footer-menu-item"><a href="myplan.html">Мой план</a></div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        function openCreatePlanModal() {
+        document.getElementById('createPlanModal').style.display = "block";
+        }
+        function closeCreatePlanModal() {
+            document.getElementById('createPlanModal').style.display = "none";
+        }
+        function createPlan() {
+            const planName = document.getElementById('planName').value.trim();
+            if (planName === "") {
+                alert("Введите название плана");
+                return;
+            }
+
+            let plans = JSON.parse(localStorage.getItem('plans')) || [];
+            plans.push({ name: planName, exercises: [] });
+            localStorage.setItem('plans', JSON.stringify(plans));
+            closeCreatePlanModal();
+            displayPlans();
+            const inputs = document.querySelectorAll('input');
+            inputs.forEach(input => input.value = '');
+        }
+
+        function openEditPlanModal(index) {
+            const plans = JSON.parse(localStorage.getItem('plans')) || [];
+            const plan = plans[index];
+            document.getElementById('editPlanName').value = plan.name;
+            document.getElementById('editPlanModal').style.display = "block";
+            document.getElementById('saveEditedPlanBtn').onclick = function () {
+                saveEditedPlan(index);
+            };
+        }
+        function closeEditPlanModal() {
+            document.getElementById('editPlanModal').style.display = "none";
+        }
+        function saveEditedPlan(index) {
+            const newPlanName = document.getElementById('editPlanName').value.trim();
+            if (newPlanName === "") {
+                alert("Введите новое название плана");
+                return;
+            }
+
+            let plans = JSON.parse(localStorage.getItem('plans')) || [];
+            plans[index].name = newPlanName;
+            localStorage.setItem('plans', JSON.stringify(plans));
+            closeEditPlanModal();
+            displayPlans(); 
+        }
+
+        function deletePlan(index) {
+            const plansContainer = document.getElementById('plansContainer');
+            const plans = JSON.parse(localStorage.getItem('plans')) || [];
+            const planDiv = plansContainer.children[index];
+
+            planDiv.classList.add('fade-out');
+
+            setTimeout(() => {
+                plans.splice(index, 1);
+                localStorage.setItem('plans', JSON.stringify(plans));
+                displayPlans(); 
+            }, 500); 
+        }
+
+        function displayPlans() {
+            const plansContainer = document.getElementById('plansContainer');
+            const plans = JSON.parse(localStorage.getItem('plans')) || [];
+
+            plansContainer.innerHTML = ''; 
+
+            if (plans.length === 0) {
+                plansContainer.innerHTML = '<div class="empty-page">Здесь пока пусто. Начните создавать свои планы тренировок и двигайтесь к своей цели! <br> Нажмите на значок "+" вверху, чтобы добавить свой первый тренировочный план.</div>';
+                return;
+            }
+
+            plans.forEach((plan, planIndex) => {
+                const planDiv = document.createElement('div');
+                planDiv.classList.add('plan');
+                planDiv.innerHTML = `
+                    <div class="plan-actions" onclick="togglePlanDetails(${planIndex})">
+                        <div>
+                            <h3>${plan.name}</h3>
+                            <div class="drop-plan"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M480-360 280-560h400L480-360Z"/></svg></div>
+                        </div>
+                        <div>
+                            <div onclick="deletePlan(${planIndex})" class="delete-plan-btn">
+                                <svg style="enable-background:new 0 0 24 24;" version="1.1" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <path d="M18.9,8H5.1c-0.6,0-1.1,0.5-1,1.1l1.6,13.1c0.1,1,1,1.7,2,1.7h8.5c1,0,1.9-0.7,2-1.7l1.6-13.1C19.9,8.5,19.5,8,18.9,8z"/>
+                                    <path d="M20,2h-5l0,0c0-1.1-0.9-2-2-2h-2C9.9,0,9,0.9,9,2l0,0H4C2.9,2,2,2.9,2,4v1c0,0.6,0.4,1,1,1h18c0.6,0,1-0.4,1-1V4 C22,2.9,21.1,2,20,2z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="plan-details" id="planDetails${planIndex}" style="display: none;">
+                        ${plan.exercises.length > 0 ? `
+                            <ul>
+                                ${plan.exercises.map((exercise, exerciseIndex) => `
+                                    <li>
+                                        <div class="exercise-details">
+                                            <div class="exercise-name">${exercise.name}</div>
+                                            <div class="appr-and-reps">
+                                                <div>
+                                                    <label for="approaches">Подходы:</label>
+                                                    <input id="approaches" type="number" value="${exercise.sets}" onchange="updateExerciseSets(${planIndex}, ${exerciseIndex}, this.value)">
+                                                </div>
+                                                <div>
+                                                    <label for="repetitions">Повторения:</label>
+                                                    <input id="repetitions" type="number" value="${exercise.reps}" onchange="updateExerciseReps(${planIndex}, ${exerciseIndex}, this.value)">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="edit-exercise">
+                                            <input type="checkbox" onclick="toggleExerciseCompletion(${planIndex}, ${exerciseIndex})" ${exercise.completed ? 'checked' : ''}>
+                                            <div class="delete-exercise" onclick="deleteExercise(${planIndex}, ${exerciseIndex})">
+                                                <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 0 512 512" width="30px">
+                                                    <path d="M417.4,224H94.6C77.7,224,64,238.3,64,256c0,17.7,13.7,32,30.6,32h322.8c16.9,0,30.6-14.3,30.6-32 C448,238.3,434.3,224,417.4,224z"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </li>
+                                `).join('')}
+                            </ul>
+                            <div class="progress-block" style="display: flex; align-items: center;">
+                                <div class="progress-bar-container">
+                                    <div id="progressBar${planIndex}" class="progress-bar"></div>
+                                </div>
+                                <span id="progressPercentage${planIndex}" class="progress-percentage">0%</span>
+                            </div>
+                        ` : `
+                            <div class="no-exercises">В этом плане ещё нет добавленных упражнений</div>
+                        `}
+                    </div>
+                `;
+                plansContainer.appendChild(planDiv);
+                if (plan.exercises.length > 0) {
+                    updateProgressBar(planIndex);
+                }
+            });
+        }
+        
+        function updateExerciseSets(planIndex, exerciseIndex, newSets) {
+            const plans = JSON.parse(localStorage.getItem('plans')) || [];
+            if (isNaN(newSets) || newSets <= 0) {
+                alert("Введите корректное количество подходов");
+                return;
+            }
+            plans[planIndex].exercises[exerciseIndex].sets = parseInt(newSets, 10);
+            localStorage.setItem('plans', JSON.stringify(plans));
+            updateProgressBar(planIndex);
+        }
+
+        function updateExerciseReps(planIndex, exerciseIndex, newReps) {
+            const plans = JSON.parse(localStorage.getItem('plans')) || [];
+            if (isNaN(newReps) || newReps <= 0) {
+                alert("Введите корректное количество повторений");
+                return;
+            }
+            plans[planIndex].exercises[exerciseIndex].reps = parseInt(newReps, 10);
+            localStorage.setItem('plans', JSON.stringify(plans));
+        }
+
+        function updateProgressBar(planIndex) {
+            const plans = JSON.parse(localStorage.getItem('plans')) || [];
+            const plan = plans[planIndex];
+            const completedExercises = plan.exercises.filter(exercise => exercise.completed).length;
+            const totalExercises = plan.exercises.length;
+            const progress = totalExercises === 0 ? 0 : (completedExercises / totalExercises) * 100;
+            const progressBar = document.getElementById(`progressBar${planIndex}`);
+            progressBar.style.width = progress + '%';
+            const progressPercentage = document.getElementById(`progressPercentage${planIndex}`);
+            progressPercentage.textContent = Math.round(progress) + '%';
+        }
+
+        function toggleExerciseCompletion(planIndex, exerciseIndex) {
+            const plans = JSON.parse(localStorage.getItem('plans')) || [];
+            const exercise = plans[planIndex].exercises[exerciseIndex];
+            exercise.completed = !exercise.completed;
+            localStorage.setItem('plans', JSON.stringify(plans));
+            updateProgressBar(planIndex);
+        }
+
+        function deleteExercise(planIndex, exerciseIndex) {
+            const plans = JSON.parse(localStorage.getItem('plans')) || [];
+            plans[planIndex].exercises.splice(exerciseIndex, 1);  
+            localStorage.setItem('plans', JSON.stringify(plans));
+            
+            const planDetails = document.getElementById(`planDetails${planIndex}`);
+            const exerciseList = planDetails.querySelector('ul');
+            exerciseList.removeChild(exerciseList.children[exerciseIndex]);
+            
+            if (plans[planIndex].exercises.length === 0) {
+                planDetails.querySelector('.no-exercises').style.display = 'block';
+            }
+
+            updateProgressBar(planIndex);
+        }
+
+
+        function togglePlanDetails(planIndex) {
+            const details = document.getElementById(`planDetails${planIndex}`);
+            const dropIcon = details.previousElementSibling.querySelector('.drop-plan svg');
+
+            if (details.style.display === 'none' || !details.style.display) {
+                details.style.display = 'block';
+                setTimeout(() => {
+                    details.style.height = details.scrollHeight + 'px'; 
+                }, 0);
+                dropIcon.classList.add('rotated');
+            } else {
+                details.style.height = '0px';
+                dropIcon.classList.remove('rotated');
+                setTimeout(() => {
+                    details.style.display = 'none';
+                }, 300); 
+            }
+        }
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            displayPlans();
+        });
+
+    </script>
+</body>
+</html>

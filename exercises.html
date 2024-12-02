@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="css/styleExercise.css">
+    <title>Упражнения</title>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/logo.svg" alt="">   
+                </a>
+            </div>
+            <div class="menu holder">
+                <div class="menu-item"><a href="completeplan.html">Готовые планы</a></div>
+                <div class="menu-item"><a href="exercises.html">Упражнения</a></div>
+                <div class="menu-item"><a href="trainers.html">Контакты тренеров</a></div>
+                <div class="menu-item"><a href="myplan.html">Мой план</a></div>
+            </div>
+        </div>
+    </header>
+    <main class="exercises-section">
+        <div class="container">
+            <div class="title">Все упражнения</div>
+            <div class="exercises">
+                <div class="card wow animate__animated animate__fadeInRight" data-name="Отжимания" data-place="Улица Дом Зал">
+                    <div class="add-button" onclick="openAddExerciseModal('Отжимания')">
+                        <svg class="icon" height="32px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M28,14H18V4c0-1.104-0.896-2-2-2s-2,0.896-2,2v10H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h10v10c0,1.104,0.896,2,2,2s2-0.896,2-2V18h10c1.104,0,2-0.896,2-2S29.104,14,28,14z" />
+                        </svg>
+                    </div>
+                    <a href="pages/pushUp.html" class="card-content">
+                        <img src="img/push-ups.webp">
+                        <div class="card-title">Отжимания</div>
+                        <div class="card-desc">Упражнение для груди, трицепсов, дельтовидных мышц и бицепсов</div>
+                    </a>
+                </div>
+
+                <div class="card wow animate__animated animate__fadeInRight" data-name="Кабельный-кроссовер" data-place="Зал">
+                    <div class="add-button" onclick="openAddExerciseModal('Кабельный кроссовер')">
+                        <svg class="icon" height="32px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M28,14H18V4c0-1.104-0.896-2-2-2s-2,0.896-2,2v10H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h10v10c0,1.104,0.896,2,2,2  s2-0.896,2-2V18h10c1.104,0,2-0.896,2-2S29.104,14,28,14z" />
+                        </svg>
+                    </div>
+                    <a href="pages/cable-crossover.html" class="card-content">
+                        <img src="img/cable-сrossover.webp">
+                        <div class="card-title">Кабельный кроссовер</div>
+                        <div class="card-desc">Упражнение для груди и передних дельтовидных мышц</div>
+                    </a>
+                </div>
+
+                <div class="card wow animate__animated animate__fadeInRight" data-name="Подтягивния" data-place="Улица">
+                    <div class="add-button" onclick="openAddExerciseModal('Подтягивния')">
+                        <svg class="icon" height="32px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M28,14H18V4c0-1.104-0.896-2-2-2s-2,0.896-2,2v10H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h10v10c0,1.104,0.896,2,2,2  s2-0.896,2-2V18h10c1.104,0,2-0.896,2-2S29.104,14,28,14z" />
+                        </svg>
+                    </div>
+                    <a href="pages/pullUp.html" class="card-content">
+                        <img src="img/pull-up.webp">
+                        <div class="card-title">Подтягивния</div>
+                        <div class="card-desc">Упражнение для спины и бицепсов</div>
+                    </a>
+                </div>
+
+                <div class="card wow animate__animated animate__fadeInRight" data-name="Жим гантелей сидя" data-place="Зал">
+                    <div class="add-button" onclick="openAddExerciseModal('Жим гантелей сидя')">
+                        <svg class="icon" height="32px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M28,14H18V4c0-1.104-0.896-2-2-2s-2,0.896-2,2v10H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h10v10c0,1.104,0.896,2,2,2  s2-0.896,2-2V18h10c1.104,0,2-0.896,2-2S29.104,14,28,14z" />
+                        </svg>
+                    </div>
+                    <a href="pages/dumbbellShoulderPress.html" class="card-content">
+                        <img src="img/dumbbell-shoulder-press.webp">
+                        <div class="card-title">Жим гантелей сидя</div>
+                        <div class="card-desc">Упражнение для плеч и трицепсов</div>
+                    </a>
+                </div>
+
+                <div class="card wow animate__animated animate__fadeInRight" data-name="Жим сидя в тренажере смита" data-place="Зал">
+                    <div class="add-button" onclick="openAddExerciseModal('Жим сидя в тренажере Смита')">
+                        <svg class="icon" height="32px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M28,14H18V4c0-1.104-0.896-2-2-2s-2,0.896-2,2v10H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h10v10c0,1.104,0.896,2,2,2  s2-0.896,2-2V18h10c1.104,0,2-0.896,2-2S29.104,14,28,14z" />
+                        </svg>
+                    </div>
+                    <a href="pages/smithMachineShoulderPress.html   " class="card-content">
+                        <img src="img/smith-machine-shoulder-press.webp ">
+                        <div class="card-title">Жим сидя в тренажере Смита</div>
+                        <div class="card-desc">Упражнение для плеч и трицепсов</div>
+                    </a>
+                </div>
+
+                <div class="card wow animate__animated animate__fadeInRight" data-name="Тяга штанги к подбородку" data-place="Зал">
+                    <div class="add-button" onclick="openAddExerciseModal('Тяга штанги к подбородку')">
+                        <svg class="icon" height="32px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M28,14H18V4c0-1.104-0.896-2-2-2s-2,0.896-2,2v10H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h10v10c0,1.104,0.896,2,2,2  s2-0.896,2-2V18h10c1.104,0,2-0.896,2-2S29.104,14,28,14z" />
+                        </svg>
+                    </div>
+                    <a href="pages/barbellUprightRow.html" class="card-content">
+                        <img src="img/barbell-upright-row.webp">
+                        <div class="card-title">Тяга штанги к подбородку</div>
+                        <div class="card-desc">Упражнение для плеч, спины и бицепсов</div>
+                    </a>
+                </div>
+                    
+                <div class="card wow animate__animated animate__fadeInRight" data-name="Попеременное сгибание рук с гантелями" data-place="Зал Дом">
+                    <div class="add-button" onclick="openAddExerciseModal('Попеременное сгибание рук с гантелями')">
+                        <svg class="icon" height="32px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M28,14H18V4c0-1.104-0.896-2-2-2s-2,0.896-2,2v10H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h10v10c0,1.104,0.896,2,2,2  s2-0.896,2-2V18h10c1.104,0,2-0.896,2-2S29.104,14,28,14z" />
+                        </svg>
+                    </div>
+                    <a href="pages/alternatingDumbbellCurl.html" class="card-content">
+                        <img src="img/alternating-dumbbell-curl.webp">
+                        <div class="card-title">Попеременное сгибание рук с гантелями</div>
+                        <div class="card-desc">Упражнение на бицепс</div>
+                    </a>
+                </div>
+
+                <div class="card wow animate__animated animate__fadeInRight" data-name="Концентрированное сгибание рук с гантелями" data-place="Зал Дом">
+                    <div class="add-button" onclick="openAddExerciseModal('Концентрированное сгибание рук с гантелями')">
+                        <svg class="icon" height="32px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M28,14H18V4c0-1.104-0.896-2-2-2s-2,0.896-2,2v10H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h10v10c0,1.104,0.896,2,2,2  s2-0.896,2-2V18h10c1.104,0,2-0.896,2-2S29.104,14,28,14z" />
+                        </svg>
+                    </div>
+                    <a href="pages/dumbbellConcentrationCurl.html" class="card-content">
+                        <img src="img/dumbbell-concentration-curl.webp">
+                        <div class="card-title">Концентрированное сгибание рук с гантелями</div>
+                        <div class="card-desc">Упражнение на бицепс</div>
+                    </a>
+                </div>
+
+                <div class="card wow animate__animated animate__fadeInRight" data-name="Жим к низу на вертикальном блоке" data-place="Зал">
+                    <div class="add-button" onclick="openAddExerciseModal('Жим к низу на вертикальном блоке')">
+                        <svg class="icon" height="32px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M28,14H18V4c0-1.104-0.896-2-2-2s-2,0.896-2,2v10H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h10v10c0,1.104,0.896,2,2,2  s2-0.896,2-2V18h10c1.104,0,2-0.896,2-2S29.104,14,28,14z" />
+                        </svg>
+                    </div>
+                    <a href="pages/tricepsPressdown.html" class="card-content">
+                        <img src="img/triceps-pressdown.webp">
+                        <div class="card-title">Жим к низу на вертикальном блоке</div>
+                        <div class="card-desc">Упражнение на трицепс</div>
+                    </a>
+                </div>
+                
+                <div class="card wow animate__animated animate__fadeInRight" data-name="Отжимания от скамьи" data-place="Улица Дом Зал">
+                    <div class="add-button" onclick="openAddExerciseModal('Отжимания от скамьи')">
+                        <svg class="icon" height="32px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M28,14H18V4c0-1.104-0.896-2-2-2s-2,0.896-2,2v10H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h10v10c0,1.104,0.896,2,2,2  s2-0.896,2-2V18h10c1.104,0,2-0.896,2-2S29.104,14,28,14z" />
+                        </svg>
+                    </div>
+                    <a href="pages/benchDips.html" class="card-content">
+                        <img src="img/bench-dips.webp">
+                        <div class="card-title">Отжимания от скамьи</div>   
+                        <div class="card-desc">Упражнение на трицепсы и передние дельты</div>
+                    </a>
+                </div>
+                
+                <div class="card wow animate__animated animate__fadeInRight" data-name="Скручивания" data-place="Улица Дом Зал">
+                    <div class="add-button" onclick="openAddExerciseModal('Скручивания')">
+                        <svg class="icon" height="32px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M28,14H18V4c0-1.104-0.896-2-2-2s-2,0.896-2,2v10H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h10v10c0,1.104,0.896,2,2,2  s2-0.896,2-2V18h10c1.104,0,2-0.896,2-2S29.104,14,28,14z" />
+                        </svg>
+                    </div>
+                    <a href="pages/crunch.html" class="card-content">
+                        <img src="img/crunch.webp">
+                        <div class="card-title">Скручивания</div>
+                        <div class="card-desc">Упражнение для брюшного пресса</div>
+                    </a>
+                </div>
+
+                <div class="card wow animate__animated animate__fadeInRight" data-name="Косые скручивания" data-place="Улица Дом Зал">
+                    <div class="add-button" onclick="openAddExerciseModal('Косые скручивания')">
+                        <svg class="icon" height="32px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M28,14H18V4c0-1.104-0.896-2-2-2s-2,0.896-2,2v10H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h10v10c0,1.104,0.896,2,2,2  s2-0.896,2-2V18h10c1.104,0,2-0.896,2-2S29.104,14,28,14z" />
+                        </svg>
+                    </div>
+                    <a href="pages/obliqueCrunch.html" class="card-content">
+                        <img src="img/oblique-crunch.webp">
+                        <div class="card-title">Косые скручивания</div>
+                        <div class="card-desc">Упражнение для брюшного пресса</div>
+                    </a>
+                </div>
+
+                <div class="card wow animate__animated animate__fadeInRight" data-name="Пресс машина" data-place="Зал">
+                    <div class="add-button" onclick="openAddExerciseModal('Пресс машина')">
+                        <svg class="icon" height="32px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M28,14H18V4c0-1.104-0.896-2-2-2s-2,0.896-2,2v10H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h10v10c0,1.104,0.896,2,2,2  s2-0.896,2-2V18h10c1.104,0,2-0.896,2-2S29.104,14,28,14z" />
+                        </svg>
+                    </div>
+                    <a href="pages/crunchMachine.html" class="card-content">
+                        <img src="img/crunch-machine.webp">
+                        <div class="card-title">Пресс-машина</div>
+                        <div class="card-desc">Упражнение для брюшного пресса</div>
+                    </a>
+                </div>
+
+                <div class="card wow animate__animated animate__fadeInRight" data-name="Приседания с собственным весом" data-place="Улица Дом Зал">
+                    <div class="add-button" onclick="openAddExerciseModal('Приседания с собственным весом')">
+                        <svg class="icon" height="32px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M28,14H18V4c0-1.104-0.896-2-2-2s-2,0.896-2,2v10H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h10v10c0,1.104,0.896,2,2,2  s2-0.896,2-2V18h10c1.104,0,2-0.896,2-2S29.104,14,28,14z" />
+                        </svg>
+                    </div>
+                    <a href="pages/bodyweightSquat.html" class="card-content">
+                        <img src="img/bodyweight-squat.webp">
+                        <div class="card-title">Приседания с собственным весом</div>
+                        <div class="card-desc">Упражнения для бедер, ягодиц, икр и мышц корпуса</div>
+                    </a>
+                </div>
+
+                <div class="card wow animate__animated animate__fadeInRight" data-name="Берпи" data-place="Улица Дом Зал">
+                    <div class="add-button" onclick="openAddExerciseModal('Берпи')">
+                        <svg class="icon" height="32px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M28,14H18V4c0-1.104-0.896-2-2-2s-2,0.896-2,2v10H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h10v10c0,1.104,0.896,2,2,2  s2-0.896,2-2V18h10c1.104,0,2-0.896,2-2S29.104,14,28,14z" />
+                        </svg>
+                    </div>
+                    <a href="pages/burpees.html" class="card-content">
+                        <img src="img/burpees.webp">
+                        <div class="card-title">Берпи</div>
+                        <div class="card-desc">Упражнения для груди, трицепсов, дельтовидных мышц, пресса, ягодиц, квадрицепсов, подколенных сухожилий и икр</div>
+                    </a>
+                </div>
+
+                <div class="card wow animate__animated animate__fadeInRight" data-name="Пожимание плечами с гантелями" data-place="Дом Зал">
+                    <div class="add-button" onclick="openAddExerciseModal('Пожимание плечами с гантелями')">
+                        <svg class="icon" height="32px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M28,14H18V4c0-1.104-0.896-2-2-2s-2,0.896-2,2v10H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h10v10c0,1.104,0.896,2,2,2  s2-0.896,2-2V18h10c1.104,0,2-0.896,2-2S29.104,14,28,14z" />
+                        </svg>
+                    </div>
+                    <a href="pages/dumbbellShrugs.html" class="card-content">
+                        <img src="img/dumbbell-shrugs.webp">
+                        <div class="card-title">Пожимание плечами с гантелями</div>
+                        <div class="card-desc">Упражнение для трапециевидных мышц</div>
+                    </a>
+                </div>
+
+                <div class="card wow animate__animated animate__fadeInRight" data-name="Жим ногами" data-place="Зал">
+                    <div class="add-button" onclick="openAddExerciseModal('Жим ногами')">
+                        <svg class="icon" height="32px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M28,14H18V4c0-1.104-0.896-2-2-2s-2,0.896-2,2v10H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h10v10c0,1.104,0.896,2,2,2  s2-0.896,2-2V18h10c1.104,0,2-0.896,2-2S29.104,14,28,14z" />
+                        </svg>
+                    </div>
+                    <a href="pages/legPress.html" class="card-content">
+                        <img src="img/leg-press.webp">
+                        <div class="card-title">Жим ногами</div>
+                        <div class="card-desc">Упражнение для ног</div>
+                    </a>
+                </div>  
+
+                <div class="card wow animate__animated animate__fadeInRight" data-name="Подъем на носках сидя" data-place="Зал">
+                    <div class="add-button" onclick="openAddExerciseModal('Подъем на носках сидя')">
+                        <svg class="icon" height="32px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M28,14H18V4c0-1.104-0.896-2-2-2s-2,0.896-2,2v10H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h10v10c0,1.104,0.896,2,2,2  s2-0.896,2-2V18h10c1.104,0,2-0.896,2-2S29.104,14,28,14z" />
+                        </svg>
+                    </div>
+                    <a href="pages/seatedCalfRaise.html" class="card-content">
+                        <img src="img/seated-calf-raise.webp">
+                        <div class="card-title">Подъем на носках сидя</div>
+                        <div class="card-desc">Упражнение для икр</div>
+                    </a>
+                </div>
+            </div>           
+        </div>
+        <div id="scrollTop" class="scroll-to-top">
+            <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="m256-424-56-56 280-280 280 280-56 56-224-223-224 223Z"/></svg>
+        </div>
+    </main>
+    <div id="addExerciseModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAddExerciseModal()"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></span>
+            <h2>Добавьте упражнение в свой план</h2>
+            <div>
+                <label for="plan">Выберите план:</label>
+                <select id="plan" required></select>
+            </div>
+            <div>
+                <label for="sets">Количество подходов:</label>
+                <input type="number" id="sets" placeholder="Подходы">
+            </div>
+            <div>
+                <label for="reps">Количество повторений:</label>
+                <input type="number" id="reps" placeholder="Повторения">
+            </div>
+            <button onclick="addExerciseToPlan()">Добавить в план</button>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-desc">
+                <a href="#" class="footer-logo"><img src="img/logo.svg" alt="" ></a>
+                <div class="footer-desc-text">Каждый новый день приносит шанс стать лучше и добиться желаемого. Используйте его с умом и двигайтесь в своим целям! </div>
+            </div>
+            <div class="footer-menu">
+                <div class="footer-menu-item"><a href="completeplan.html">Готовые планы</a></div>
+                <div class="footer-menu-item"><a href="exercises.html">Упражнения</a></div>
+                <div class="footer-menu-item"><a href="trainers.html">Контакты тренеров</a></div>
+                <div class="footer-menu-item"><a href="myplan.html">Мой план</a></div>
+            </div>
+        </div>
+    </footer>
+
+    
+    <script src="js/script.js"></script>
+    <script src="js/wow.min.js"></script>
+
+    <script>
+        new WOW({
+            mobile:true
+        }).init();
+
+        function openAddExerciseModal(exerciseName) {
+            const modal = document.getElementById('addExerciseModal');
+            const planSelect = document.getElementById('plan');
+            const setsInput = document.getElementById('sets');
+            const repsInput = document.getElementById('reps');
+            
+            const plans = JSON.parse(localStorage.getItem('plans')) || [];
+            planSelect.innerHTML = '';
+            plans.forEach(plan => {
+                const option = document.createElement('option');
+                option.value = plan.name;
+                option.textContent = plan.name;
+                planSelect.appendChild(option);
+            });
+
+            modal.style.display = "block";
+
+            modal.dataset.exercise = exerciseName;
+            const inputs = document.querySelectorAll('input');
+            inputs.forEach(input => input.value = '');
+        }
+
+        function closeAddExerciseModal() {
+            document.getElementById('addExerciseModal').style.display = "none";
+        }
+
+        function addExerciseToPlan() {
+            const modal = document.getElementById('addExerciseModal');
+            const exerciseName = modal.dataset.exercise;
+            const planName = document.getElementById('plan').value;
+            const sets = document.getElementById('sets').value;
+            const reps = document.getElementById('reps').value;
+
+            let plans = JSON.parse(localStorage.getItem('plans')) || [];
+            const plan = plans.find(p => p.name === planName);
+            if (plan) {
+                plan.exercises.push({ name: exerciseName, sets: sets, reps: reps });
+            }
+
+            localStorage.setItem('plans', JSON.stringify(plans));
+
+            closeAddExerciseModal();
+        }
+    </script>
+</body>
+</html>
