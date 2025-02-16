@@ -1,3 +1,10 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
 body{
     margin: 0;
     padding: 0;
@@ -12,6 +19,10 @@ body{
 body::-webkit-scrollbar{
     width: 7px;
     height: 0;
+}
+
+main{
+    flex: 1;
 }
 
 body::-webkit-scrollbar-thumb {
@@ -82,7 +93,7 @@ header{
 }   
 
 .main-img img {
-    height: 500px;
+    height: 600px;
 }
 
 .main-title {
@@ -161,10 +172,14 @@ header{
 
 .facts-block{
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap:50px;
+    justify-content: space-evenly;
     margin-top: 150px;
+}
+
+.facts-block .outer{
+    display: flex;
+    flex-direction: column;
+    gap:30px;
 }
 
 
